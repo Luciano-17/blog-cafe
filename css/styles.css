@@ -1,0 +1,285 @@
+:root {
+    --fuenteHeading: "PT Sans", sans-serif;
+    --fuenteParrafos: "Open Sans", sans-serif;
+
+    --primario: #784d3c;
+    --gris: #e1e1e1;
+    --blanco: #ffffff;
+    --negro: #000000;
+}
+
+/* GLOBALES */
+html {
+    box-sizing: border-box;
+    font-size: 62,5%; /* 1rem = 10px*/
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: var(--fuenteParrafos); /* Fuente del cuerpo */
+    font-size: 1.1rem; /* Tamaño de la fuente */
+    line-height: 2; /* Separacion entre las lineas de texto*/
+}
+.contenedor {
+    width: min(90%, 120rem); /* El contenido tomará el minimo entre el 90% de la pantalla o los 120rem */
+    margin: 0 auto; /* Centrará el contenido (0 arriba y abajo, automatico en izq y der) */
+}
+a {
+    text-decoration: none; /* Todos los links no tendran el subrayado */
+}
+h1,h2,h3,h4 {
+    font-family: var(--fuenteHeading); /* Todos los titulos tendran esta fuente */
+    line-height: 1.5;
+}
+@media (min-width: 768px) {
+    h1,h2,h3,h4 {
+        line-height: 1.2; /* interlineado*/
+    }
+}
+h1 {
+    font-size: 3.5rem; /* Le damos un determinado tamaño a los titulos */
+}
+h2 {
+    font-size: 2.7rem; /* Le damos un determinado tamaño a los titulos */
+}
+h3 {
+    font-size: 2.3rem; /* Le damos un determinado tamaño a los titulos */
+}
+h4 {
+    font-size: 1.5rem; /* Le damos un determinado tamaño a los titulos */
+}
+img {
+    max-width: 100%; /* Las imagenes ocuparan el 100% de la pantalla */
+}
+
+/* UTILIDADES */
+.no-margin {
+    margin: 0; /* Le quitará los margenes a los elementos que queramos */
+}
+.no-padding {
+    padding: 0; /* Le quitará el padding a los elementos que queramos */
+}
+.texto-centrado {
+    text-align: center; /* Centrará el texto que queramos */
+}
+
+/* HEADER */
+.webp .header {
+    background-image: url(../img/banner.webp);
+}
+.no-webp .header {
+    background-image: url(../img/banner.jpg); /* A un contenedor le da de fondo una imagen */
+}
+.header {
+    height: 45rem; /* Le damos una altura a esa imagen o contenedor */
+    background-size: cover; /* Esta funcion permite que el fondo tome todo el espacio disponible */
+    background-repeat: no-repeat; /* Para que la imagen no se repita */
+    background-position: center center; /* Cuando achicamos la pantalla vemos que no se puede apreciar bien 
+                                        la imagen, ésta funcion hará que siempre este centrada cualquiera sea 
+                                        la resolucion de pantalla */ /* Tiene doble "center" porque a una 
+                                        imagen tienes que centrarla tanto horizontalmente, como verticalmente */
+}
+@media (min-width: 768px) {
+    .header {
+        height: 30rem;
+    }
+}
+@media (min-width: 768px) {
+    .barra {
+        display: flex; /* Debemos poner esto para acceder a las funcinoes de flexbox */
+        justify-content: space-between; /* Es para alinear el contenido horizontalmente */ 
+                                        /* space-between nos colocara un elemento en cada extremo */
+        align-items: center; /* alinear centralmente los items */
+    }
+}
+.logo {
+    color: var(--blanco); /* cambia el color a la fuente */
+}
+.logo__nombre {
+    font-weight: 400; /* le da una fuente normal */
+}
+.logo__bold {
+    font-weight: 700; /* le da una fuente en negrita*/
+}
+.navegacion {
+    margin: 3rem;
+}
+@media (min-width: 768px) {
+    .navegacion {
+        display: grid; /* los organiza horizontalmente */
+        grid-template-columns: repeat(3,1fr);
+        column-gap: 1rem; /* le da una separacion entre los elementos */
+    }
+}
+.navegacion__enlace {
+    display: block; /* Para que se vean de arriba hacia abajo */
+    text-align: center; /* Para que estén centrados */
+    font-size: 1rem; /* tamaño de la fuente */
+    color: var(--blanco); /* color de la fuente */
+    margin: 2rem;
+}
+@media (min-width: 768px) {
+    .navegacion__enlace {
+        margin: 0;
+    }
+}
+.header__texto {
+    text-align: center; /* centra el texto */
+    color: var(--blanco); /* cambia el color de la fuente */
+    margin-top: -.5rem; /* Le da separacion con respecto a otros contenedores */
+}
+@media (min-width: 365px) {
+    .header__texto {
+        margin-top: 2rem; /* Agranda el margen de los elementos, para que se vea bien en todas las pantallas*/
+    }
+}
+@media (min-width: 768px) {
+    .header__texto {
+        margin-top: 5rem; /* Agranda el margen de los elementos, para que se vea bien en todas las pantallas*/
+    }
+}
+@media (min-width: 992px) {
+    .header__texto {
+        margin-top: 7rem; /* Agranda el margen de los elementos, para que se vea bien en todas las pantallas*/
+    }
+}
+
+/* MAIN */
+@media (min-width: 768px) {
+    .contenido-principal {
+        display: grid; /* Display grid para controlar la visualizacion de los elementos */
+        grid-template-columns: 2fr 1fr; /* Creamos dos columnas diviediendo el espacio */
+        column-gap: 2rem; /* Separacion entre las columnas */
+    }
+}
+.entrada {
+    border-bottom: 1px solid var(--gris); /* Le da una linea debajo de cada elemento */
+    margin-bottom: .5rem; /* Le da separacion para que se pueda apreciar */
+}
+@media (min-width: 768px) {
+    .entrada:last-of-type {
+        border: none; /* Le quita el borde al ultimo elemento ya que no es necesario */
+        margin-bottom: 0;
+    }
+}
+.boton {
+    display: block; /* Porque en un dispositivo móvil tome todo el espacio disponible */
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    text-align: center;
+    padding: .5rem 1.5rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border: none;
+}
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block; /* Solo toma el espacio requerido por el elelmento a menos que quieras agregar un width 
+                               o heigth*/
+    }
+}
+.boton:hover {
+    cursor: pointer;
+}
+.boton-primario {
+    background-color: var(--negro);
+}
+.boton-secundario {
+    background-color: var(--primario);
+}
+.cursos {
+    list-style: none;
+}
+.widget-cursos {
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: .5rem;
+}
+.widget-cursos:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+.widget-cursos__label,
+.curso__label {
+    font-family: var(--fuenteHeading);
+    font-weight: 700;
+}
+.widget-cursos__info,
+.curso__info {
+    font-weight: 400;
+}
+.entrada__titulo {
+    margin: 1rem 0;
+}
+
+/* FOOTER */
+.footer {
+    background-color: var(--negro);
+    padding: .5rem 0;
+    margin-top: 2rem;
+}
+
+/* NOSOTROS */
+@media (min-width: 768px) {
+    .sobre-nosotros {
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        column-gap: 1rem;
+    }
+}
+
+/* CURSO */
+.curso {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--gris);
+}
+@media (min-width: 768px) {
+    .curso {
+        display: grid;
+        grid-template-columns: 0.8fr 2fr;
+        column-gap: 2rem;
+    }
+}
+.curso:last-of-type {
+    border-bottom: none;
+}
+
+/* ENTRADA */
+.contenedor__imagen {
+    display: flex;
+    justify-content: center;
+}
+.contenedor__texto {
+    text-align: justify;
+}
+
+/* CONTACTO */
+.contacto-bg {
+    background-image: url(../img/contacto.jpg);
+    height: 20rem;
+    background-size: cover;
+}
+.formulario {
+    background-color: var(--blanco);
+    margin: -2rem auto 0 auto;
+    width: 90%;
+    padding: 2rem;
+}
+.campo {
+    display: flex;
+    margin-bottom: 1rem;
+}
+.campo__label {
+    flex: 0 0 9rem; /* Fija los elementos */
+    text-align: right;
+    padding-right: 1rem;
+}
+.campo__field {
+    flex: 1; /* Alarga el recuadro para escribir por todo el espacio horizontal disponible */
+    border: 1px solid var(--gris);
+}
+.campo__field-textarea {
+    height: 7rem;
+}
